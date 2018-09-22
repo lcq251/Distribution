@@ -39,6 +39,6 @@ trait UuidTrait
 
     public function refreshUuid()
     {
-        $this->uuid = Uuid::uuid4()->toString();
+        $this->uuid = str_replace("-","",Uuid::uuid4()->toString());
     }
 }
