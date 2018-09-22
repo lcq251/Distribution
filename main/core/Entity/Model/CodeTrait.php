@@ -13,7 +13,7 @@ trait CodeTrait
     /**
      * @var string
      *
-     * @ORM\Column("code", type="string", length=36, unique=true)
+     * @ORM\Column("code", type="string", length=32, unique=true)
      */
     private $code;
 
@@ -40,6 +40,6 @@ trait CodeTrait
     //default is same than uuid
     public function refreshCode()
     {
-        $this->uuid = str_replace("-","",Uuid::uuid4()->toString());
+        $this->code = str_replace("-","",Uuid::uuid4()->toString());
     }
 }
