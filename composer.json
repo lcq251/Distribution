@@ -181,7 +181,7 @@
             "Claroline\\DropZoneBundle\\": "plugin/drop-zone",
             "Claroline\\PlannedNotificationBundle\\": "plugin/planned-notification",
             "Claroline\\LinkBundle\\": "plugin/link",
-            "Mindme\\MarkdownBundle\\" "plugin/markdown"
+            "Mindme\\MarkdownBundle\\": "plugin/markdown"
         }
     },
     "extra": {
@@ -242,8 +242,7 @@
             "Claroline\\DropZoneBundle\\ClarolineDropZoneBundle",
             "Claroline\\PlannedNotificationBundle\\ClarolinePlannedNotificationBundle",
             "Claroline\\LinkBundle\\ClarolineLinkBundle",
-            "Claroline\\LinkBundle\\ClarolineLinkBundle",
-            
+            "Mindme\\MarkdownBundle\\MindmeMarkdownBundle"
         ]
     }
 }
