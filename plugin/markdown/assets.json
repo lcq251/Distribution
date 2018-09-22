@@ -1,0 +1,14 @@
+{
+  "webpack": {
+    "entry": {
+      "markdown-resource": "resources/markdown"
+    }
+  },
+  
+   "styles": {
+    "entry": {
+      "markdown-resource": "resources/markdown.less"
+    }
+  }
+}
+

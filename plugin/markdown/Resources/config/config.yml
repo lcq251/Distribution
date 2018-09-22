@@ -1,0 +1,15 @@
+plugin:
+    has_options: false
+    resources:
+        -   class: Mindme\MarkdownBundle\Entity\Markdown
+            name: markdown
+            is_exportable: true
+    widgets:
+        -   name: resource_markdown
+            is_configurable: true
+            is_displayable_in_desktop: true
+            is_displayable_in_workspace: true
+        -   name: simple_markdown
+            is_configurable: true
+            is_displayable_in_desktop: true
+            is_displayable_in_workspace: true

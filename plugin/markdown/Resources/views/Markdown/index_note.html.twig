@@ -1,0 +1,20 @@
+{% extends "ClarolineCoreBundle:Resource:layout.html.twig" %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="/bundles/innovapath/css/react-table.css" />
+ <link rel="stylesheet" type="text/css" href="/bundles/innovapath/css/react-tabs.css" />
+ {% endblock %}
+
+{% block content %}
+    <div
+        class="page-container text-container"
+        data-resource-node="{{ _resource.resourceNode | api_serialize | json_encode | raw | escape }}"
+        data-markdown="{{ markdown | api_serialize | json_encode | raw | escape }}"
+    >
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ hotAsset('dist/claroline-distribution-plugin-markdown-markdown-resource.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,83 @@
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/packages/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="/packages/angular-strap/bower_components/highlightjs/styles/github.css">
+    <link rel="stylesheet" href="/packages/tui-editor/dist/tui-editor.css">
+    <link rel="stylesheet" href="/packages/tui-editor/dist/tui-editor-contents.css">
+    <link rel="stylesheet" href="/packages/tui-color-picker/dist/tui-color-picker.css">
+    <link rel="stylesheet" href="/packages/tui-chart/dist/tui-chart.css">
+    <link rel="stylesheet" type="text/css" href="{{ themeAsset('claroline-distribution-plugin-announcement-announcement-resource.css') }}" />
+{% endblock %}
+
+{% block content %}
+
+    <div class='modal-dialog md-markdwon-dialog' style='height: 700px;width: 90%;'>
+        <form role="form" novalidate="novalidate"
+              action="{{ path('claro_resource_create', {'resourceType':resourceType, 'parentId':'_nodeId'}) }}"
+              method="post" {{ form_enctype(form) }}
+              id="generic-form"
+              novalidate
+              class="modal-content">
+            <div class='modal-header'>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">{{ 'create_resource' | trans({}, 'platform') }} ({{ resourceType | trans({}, 'resource') }})</h4>
+            </div>
+            <div class='modal-body'>
+                <div> <div class='md-form-title'>{{ form_widget(form.name) }}</div>
+                    <div class='md-form-mode'>{{ form_widget(form.defaultMode) }}</div>
+                    <div class='md-form-publish'>{{ form_widget(form.published) }}</div>
+                </div>
+                <div>
+                    <div class='md-form-content' style='display:none'>{{ form_widget(form.content) }}</div>
+                    {{ form_rest(form) }}
+                </div>
+                <div id='editSection'></div>
+            </div>
+            <div class="modal-footer">
+                <button id="md-markdown-btn" type="submit" class="btn btn-primary">{{ 'ok'|trans({}, 'platform') }}</button>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/packages/jquery/dist/jquery.js"></script>
+    <script src="/packages/markdown-it/dist/markdown-it.js"></script>
+    <script src="/packages/to-mark/dist/to-mark.js"></script>
+    <script src="/packages/tui-code-snippet/dist/tui-code-snippet.js"></script>
+    <script src="/packages/tui-color-picker/dist/tui-color-picker.js"></script>
+    <script src="/packages/codemirror/lib/codemirror.js"></script>
+    <script src="/packages//angular-strap/bower_components/highlightjs/highlight.pack.js"></script>
+    <script src="/packages/squire-rte/build/squire-raw.js"></script>
+
+    <script src="/packages/plantuml-encoder/dist/plantuml-encoder.js"></script>
+    <script src="/packages/raphael/raphael.js"></script>
+    <script src="/packages/tui-chart/dist/tui-chart.js"></script>
+    <script src="/packages/tui-editor/dist/tui-editor-Editor-all.min.js"></script>
+
+    <script class="code-js">
+
+         $(document).ready(function () {
+             var editor = new tui.Editor({
+                 el: document.querySelector('#editSection'),
+                 previewStyle: 'vertical',
+                 height: '600px',
+                 initialEditType: 'markdown',
+                 useCommandShortcut: true,
+                 exts: ['scrollSync', 'colorSyntax', 'uml', 'chart', 'mark', 'table']
+             });
+             
+  
+             $("#generic-form").submit(function () {
+              console.log(editor.getValue());
+             $(".md-markdown-content-area").val(editor.getValue());
+              console.log($(".md-markdown-content-area").val());
+             });
+             
+    
+         });
+    </script>   
+{% endblock %}
+

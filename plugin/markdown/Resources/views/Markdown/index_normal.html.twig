@@ -1,0 +1,41 @@
+{% extends "ClarolineCoreBundle:Resource:layout.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/packages/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="/packages/angular-strap/bower_components/highlightjs/styles/github.css">
+     <link rel="stylesheet" href="/packages/tui-editor/dist/tui-editor.css">
+    <link rel="stylesheet" href="/packages/tui-editor/dist/tui-editor-contents.css">
+    <link rel="stylesheet" href="/packages/tui-color-picker/dist/tui-color-picker.css">
+    <link rel="stylesheet" href="/packages/tui-chart/dist/tui-chart.css">
+ {% endblock %}
+
+{% block content %}
+    <div
+        class="page-container text-container"
+        data-resource-node="{{ _resource.resourceNode | api_serialize | json_encode | raw | escape }}"
+        data-markdown="{{ markdown | api_serialize | json_encode | raw | escape }}"
+    >
+    </div>
+    <div>{{ defaultmode }}</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+  
+    <script src="/packages/markdown-it/dist/markdown-it.js"></script>
+    <script src="/packages/to-mark/dist/to-mark.js"></script>
+    <script src="/packages/tui-code-snippet/dist/tui-code-snippet.js"></script>
+    <script src="/packages/tui-color-picker/dist/tui-color-picker.js"></script>
+    <script src="/packages/codemirror/lib/codemirror.js"></script>
+    <script src="/packages//angular-strap/bower_components/highlightjs/highlight.pack.js"></script>
+    <script src="/packages/squire-rte/build/squire-raw.js"></script>
+    
+    <script src="/packages/plantuml-encoder/dist/plantuml-encoder.js"></script>
+    <script src="/packages/raphael/raphael.js"></script>
+    <script src="/packages/tui-chart/dist/tui-chart.js"></script>
+    <script src="/packages/tui-editor/dist/tui-editor-Editor-all.min.js"></script>
+    <script src="{{ hotAsset('dist/claroline-distribution-plugin-markdown-markdown-resource.js') }}"></script>
+    
+  
+    
+{% endblock %}
