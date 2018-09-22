@@ -40,6 +40,6 @@ trait CodeTrait
     //default is same than uuid
     public function refreshCode()
     {
-        $this->code = Uuid::uuid4()->toString();
+        $this->uuid = str_replace("-","",Uuid::uuid4()->toString());
     }
 }
