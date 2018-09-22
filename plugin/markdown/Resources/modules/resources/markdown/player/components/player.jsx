@@ -1,12 +1,12 @@
 
 import React, {Component} from 'react'
-import ReactDOM from 'react-dom';
-
 import {PropTypes as T} from 'prop-types'
 import {connect} from 'react-redux'
 import classes from 'classnames'
 
-import {ResourcePageContainer} from '#/main/core/resource/containers/page.jsx'
+import {selectors} from '#/plugin/markdown/resources/markdown/store'
+import {Markdown as MarkdownTypes} from '#/plugin/markdown/resources/markdown/prop-types'
+
 import {MkView} from '#/plugin/markdown/resources/markdown/player/components/mkview'
 import {MkPPT} from '#/plugin/markdown/resources/markdown/player/components/mkppt'
 import {MkLab} from '#/plugin/markdown/resources/markdown/player/components/mklab'
@@ -40,20 +40,14 @@ const PlayerComponent = props =>
        </div>
     
 
-const mapStateToProps = (state) => {
-  return {
-    defaultmode: state.markdown.defaultmode
-  }
-}
+
 PlayerComponent.propTypes = {
-  content: T.string.isRequired
+  markdown: T.shape(MarkdownTypes.propTypes).isRequired
 }
 
 const Player = connect(
    state => ({
-    defaultmode: state.markdown.defaultMode,
-    content: state.markdown.content,
-    markdown: state.markdown
+   markdown: selectors.markdown(state)
   })
 )(PlayerComponent)
 

@@ -1,5 +1,0 @@
-## YAML Template.
-markdown:
-    resource: "@MindmeMarkdownBundle/Controller/"
-    type: annotation
-    prefix: /markdown

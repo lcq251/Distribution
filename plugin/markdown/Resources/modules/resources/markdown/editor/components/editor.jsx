@@ -3,22 +3,31 @@ import {connect} from 'react-redux'
 import {PropTypes as T} from 'prop-types'
 
 import {trans} from '#/main/core/translation'
-import {select as formSelect} from '#/main/core/data/form/selectors'
-import {Markdown as MarkdownTypes} from '#/plugin/markdown/resources/markdown/prop-types'
-import {FormContainer} from '#/main/core/data/form/containers/form.jsx'
+import {LINK_BUTTON} from '#/main/app/buttons'
+import {FormData} from '#/main/app/content/form/containers/data'
 
-const EditorComponent = () =>
-  <FormContainer
-    name="markdownForm"
+import {selectors} from '#/plugin/markdown/resources/markdown/editor/store'
+import {Markdown as MarkdownTypes} from '#/plugin/markdown/resources/markdown/prop-types'
+
+const EditorComponent = (props) =>
+  <FormData
+    name={selectors.FORM_NAME}
+    target={['apiv2_resource_markdown_update', {id: props.markdown.id}]}
+    buttons={true}
+    cancel={{
+      type: LINK_BUTTON,
+      target: '/',
+      exact: true
+    }}
     sections={[
       {
-        title: 'test',
+        title: trans('general', {}, 'platform'),
         primary: true,
         fields: [
           {
             name: 'content',
             type: 'html',
-            label: 'markdown111',
+            label: 'markdown',
             hideLabel: true,
             required: true,
             options: {
@@ -30,13 +39,16 @@ const EditorComponent = () =>
     ]}
   />
 
+
+
+
 EditorComponent.propTypes = {
   markdown: T.shape(MarkdownTypes.propTypes).isRequired
 }
 
 const Editor = connect(
   state => ({
-    markdown: formSelect.data(formSelect.form(state, 'markdownForm'))
+    markdown: selectors.markdown(state)
   })
 )(EditorComponent)
 
