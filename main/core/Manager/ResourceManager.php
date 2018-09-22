@@ -163,7 +163,7 @@ class ResourceManager
         $this->resourceNodeRepo = $om->getRepository('ClarolineCoreBundle:Resource\ResourceNode');
         $this->resourceRightsRepo = $om->getRepository('ClarolineCoreBundle:Resource\ResourceRights');
         $this->roleRepo = $om->getRepository('ClarolineCoreBundle:Role');
-        $this->shortcutRepo = $om->getRepository('ClarolineLinkBundle:Resource\Shortcut');
+        //$this->shortcutRepo = $om->getRepository('ClarolineLinkBundle:Resource\Shortcut');
         $this->directoryRepo = $om->getRepository('ClarolineCoreBundle:Resource\Directory');
     }
 
