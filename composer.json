@@ -118,7 +118,7 @@
         "icap/inwicast-plugin-bundle": "*",
         "claroline/drop-zone-bundle": "*",
         "claroline/link-bundle": "*",
-        
+        "mindme/markdown-bundle": "*"
     },
     "autoload": {
         "psr-4": {
@@ -180,7 +180,8 @@
             "Icap\\InwicastBundle\\": "plugin/inwicast",
             "Claroline\\DropZoneBundle\\": "plugin/drop-zone",
             "Claroline\\PlannedNotificationBundle\\": "plugin/planned-notification",
-            "Claroline\\LinkBundle\\": "plugin/link"
+            "Claroline\\LinkBundle\\": "plugin/link",
+            "Mindme\\MarkdownBundle\\" "plugin/markdown"
         }
     },
     "extra": {
@@ -241,7 +242,8 @@
             "Claroline\\DropZoneBundle\\ClarolineDropZoneBundle",
             "Claroline\\PlannedNotificationBundle\\ClarolinePlannedNotificationBundle",
             "Claroline\\LinkBundle\\ClarolineLinkBundle",
-            "Claroline\\LinkBundle\\ClarolineLinkBundle"
+            "Claroline\\LinkBundle\\ClarolineLinkBundle",
+            
         ]
     }
 }
