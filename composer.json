@@ -117,7 +117,8 @@
         "icap/lesson-bundle": "*",
         "icap/inwicast-plugin-bundle": "*",
         "claroline/drop-zone-bundle": "*",
-        "claroline/link-bundle": "*"
+        "claroline/link-bundle": "*",
+        
     },
     "autoload": {
         "psr-4": {
@@ -239,6 +240,7 @@
             "Icap\\InwicastBundle\\IcapInwicastBundle",
             "Claroline\\DropZoneBundle\\ClarolineDropZoneBundle",
             "Claroline\\PlannedNotificationBundle\\ClarolinePlannedNotificationBundle",
+            "Claroline\\LinkBundle\\ClarolineLinkBundle",
             "Claroline\\LinkBundle\\ClarolineLinkBundle"
         ]
     }
